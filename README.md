@@ -34,4 +34,6 @@ Rubric
 | Pass | Something very basic that is just a small modification of the code we developed in the class. Missing documentation. Completed in the days before the deadline and minimal or missing documentation. |
 | Fail | Project won't compile or major issues. |
 
-Examples of assignments[![Video](http://img.youtube.com/vi/NGQbYEESZEg/0.jpg)](https://www.youtube.com/watch?v=NGQbYEESZEg&list=PL1n0B6z4e_E7I2bIWWpH8NAa6kPx95sw5)
+Examples of assignments
+
+[![Video](http://img.youtube.com/vi/NGQbYEESZEg/0.jpg)](https://www.youtube.com/watch?v=NGQbYEESZEg&list=PL1n0B6z4e_E7I2bIWWpH8NAa6kPx95sw5)
