@@ -1,5 +1,6 @@
 # Programming_CA3
-Interactive Music Code:
+Group Members:
+Mark, Niamh & Sean
 
 For this assignment you can do a team project with a team of up to 3 people. You can choose your own teams. You can have less than 3 people and you can also do an individual assignment if you prefer. It would be great if you could manage your code through a public git repository. he theme of the assignment is:
 
