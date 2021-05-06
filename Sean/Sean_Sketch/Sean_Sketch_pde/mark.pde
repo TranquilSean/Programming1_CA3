@@ -13,17 +13,15 @@ void displaybackground01() {
     line(i, 0, i, s);                  //top of screen
     line(width, i, width+s, i);         //rightside
     line(0, i, s, i);                   //leftside
-
-    noStroke();
-    fill(c, 255, 255);
-    ellipse(width/2, height/2, lerpedAverage * 1000, lerpedAverage * 1000);
   }
+  
+  
   pushMatrix();
   noFill();
   stroke(c2, 255, 255);
   strokeWeight(1);
   lights();
-  translate(width/2, height/2); //set origin
+  translate(width/2, height/2-40); //set origin
   rotate(theta); //rotates around Z axis
   rotateY(theta);  //rotates around Y axis
   rotateX(theta);  //rotates around X axis

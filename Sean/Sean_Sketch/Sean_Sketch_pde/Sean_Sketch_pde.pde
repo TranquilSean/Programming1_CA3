@@ -5,13 +5,6 @@ import ddf.minim.signals.*;
 import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 
-
-Ball ball;
-
-int mode = 0;
-int lives = 5;
-float screenshake;
-float hue;
 Minim minim;
 AudioPlayer song;
 AudioPlayer[] playlist;
@@ -27,13 +20,17 @@ float theta = 0;
 float speed = 0.02f;
 float moveSpeed = 1;
 float z = 0;
-
+int mode = 0;
+float screenshake;
 boolean pause = true;
+
 //===BUTTON===
 int b1x, b1y, b1w, b1h;
 int b2x, b2y, b2w, b2h;
 boolean set2 = false;
 boolean set1 = false;
+
+
 void setup()
 {
   size(1024, 1024, P3D); //P3D needed for rendering 3D
@@ -51,8 +48,6 @@ void setup()
   lerpedBuffer = new float[buffer.size()];
 
   fft = new FFT(width, 44100);
-
-  ball = new Ball (width/2, height/2.5, 100);
 }
 
 
@@ -60,9 +55,7 @@ void draw()
 {
   background(0);
   strokeWeight(1);
-
   draw_button();
-
   //===Buffer===
   float sum = 0;
   for (int i = 0; i < buffer.size(); i ++)
@@ -71,7 +64,13 @@ void draw()
   }
   float average = sum / buffer.size();
   lerpedAverage = lerp(lerpedAverage, average, 0.1f);
-  float c = map(lerpedAverage, 0, 1, 60, 200);
+  float c = map(lerpedAverage, 0, 1, 200, 0);
+  //TREE CODE Parameters
+  float angle = map(lerpedAverage, 0, 1, 0, 145);
+  float radius = map(lerpedAverage*15, 0, 1, 148, 175);
+
+
+
 
   switch(mode) {
   case 0: 
@@ -80,19 +79,21 @@ void draw()
     displaybackground01();
     break;
   case 2: 
+    lines(radius);
+    drawTree(angle, c, 80);
     break;
   case 3: 
-    ball.update();
-    stroke(c, 255, 255);
-    test();
+
     break;
   }
+  
+  
+  
 }
 
 void test()
 {
-  for(int i = 0; i <= 360; i++){
-      
+  for (int i = 0; i <= 360; i++) {
   }
 }
 

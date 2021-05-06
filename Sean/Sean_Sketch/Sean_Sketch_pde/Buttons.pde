@@ -10,12 +10,13 @@ boolean over(int x, int y, int w, int h)
 }
 
 void draw_button() {
+
   b1x= width/2 -100; 
-  b1y= height - 200; 
+  b1y= height/2+ 100; 
   b1w=80; 
   b1h=30;
   b2x=width/2 + 100; 
-  b2y= height - 200; 
+  b2y= 20; 
   b2w=80; 
   b2h=30;
   strokeWeight(1);
@@ -24,14 +25,14 @@ void draw_button() {
   else                            stroke(200, 0, 200);
   if ( set1 )   fill(180, 200, 200);                           // status fill color
   else          fill(120, 200, 200);
-  rect(b1x, b1y, b1w, b1h);
+  rect(b1x, b1y, b1w, b1h, 7);
   // button 2
   if ( over(b2x, b2y, b2w, b2h) ) stroke(0, 200, 200);    
   else                            stroke(200, 0, 200);
   if ( set2 )   fill(180, 200, 200);                           
   else          fill(120, 200, 200);
-  rect(b2x, b2y, b2w, b2h);
-  fill(255);
+  rect(b2x, b2y, b2w, b2h, 7);
+  fill(0,255,255);
   text("Song 1", b1x - b1w/4, b1y + b1h/4);
   text("Song 2", b2x - b2w/4, b2y + b2h/4);
 }
