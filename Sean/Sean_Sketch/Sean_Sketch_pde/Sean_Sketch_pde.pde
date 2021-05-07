@@ -24,12 +24,18 @@ int mode = 0;
 float screenshake;
 boolean pause = true;
 
+ArrayList <Brick> bricks = new ArrayList <Brick>();
+Ball ball;
+Player player;
+
+
 //===BUTTON===
 int b1x, b1y, b1w, b1h;
 int b2x, b2y, b2w, b2h;
 boolean set2 = false;
 boolean set1 = false;
 
+Tree tr;
 
 void setup()
 {
@@ -40,6 +46,7 @@ void setup()
   playlist = new AudioPlayer[2];
   playlist[0] = minim.loadFile("song1.mp3");
   playlist[1] = minim.loadFile("song2.mp3");
+
   for ( int i = 0; i < playlist.length; i++ ) {
     playlist[i].loop();
     playlist[i].pause();
@@ -48,6 +55,14 @@ void setup()
   lerpedBuffer = new float[buffer.size()];
 
   fft = new FFT(width, 44100);
+
+  //Tree
+  tr = new Tree(20, 100, 100);
+
+  //Game
+  player= new Player( width/2, height-50, 60, 10, 5);
+  ball = new Ball (width/2, height/2.5, 10);
+  makeBricks();
 }
 
 
@@ -64,7 +79,8 @@ void draw()
   }
   float average = sum / buffer.size();
   lerpedAverage = lerp(lerpedAverage, average, 0.1f);
-  float c = map(lerpedAverage, 0, 1, 200, 0);
+  //float c = map(lerpedAverage, 0, 1, 200, 0);
+  
   //TREE CODE Parameters
   float angle = map(lerpedAverage, 0, 1, 0, 145);
   float radius = map(lerpedAverage*15, 0, 1, 148, 175);
@@ -79,16 +95,23 @@ void draw()
     displaybackground01();
     break;
   case 2: 
-    lines(radius);
-    drawTree(angle, c, 80);
+    boxBorder();
+    tr.drawTree();
     break;
-  case 3: 
-
+    case 3:
+    lines(radius);
     break;
   }
   
-  
-  
+  //GAME PING PONG
+  screenShake();
+  Player.update;
+  ball.update();
+  for (int i = 0; i < bricks.size(); i++) 
+  {
+    stroke(255);
+    bricks.get(i).update();
+  }
 }
 
 void test()
@@ -109,10 +132,25 @@ void keyPressed()
   {
     mode = keyCode - '0';
   }
+  if (key == 'a') 
+  { 
+    player.GoLeft = true;
+  }
+  if (key == 'd') { 
+    player.GoRight = true;
+  }
 }
 
 void keyReleased() 
 {
+  if (key == 'a') 
+  { 
+    player.GoLeft = false;
+  }
+  if (key == 'd')
+  { 
+    player.GoRight = false;
+  }
 }
 
 void mousePressed() 

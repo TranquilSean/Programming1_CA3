@@ -12,7 +12,7 @@ boolean over(int x, int y, int w, int h)
 void draw_button() {
 
   b1x= width/2 -100; 
-  b1y= height/2+ 100; 
+  b1y= 20; 
   b1w=80; 
   b1h=30;
   b2x=width/2 + 100; 

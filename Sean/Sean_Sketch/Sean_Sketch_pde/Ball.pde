@@ -6,8 +6,8 @@ class Ball
 
   Ball(float xpos, float ypos, float  radius ) 
   {
-    pos = new PVector(xpos, ypos, 0); 
-    vel = new PVector(2, -3);
+    pos = new PVector(xpos, ypos); 
+    vel = new PVector(3, -3);
     r = radius;
   }
 
@@ -19,12 +19,8 @@ class Ball
   }
 
   void display() {
-    fill(255, 0, 255);
-    noStroke();
+    fill(0, 255,255);
     ellipse(pos.x, pos.y, r, r);
-    translate(random(100, width-100),random(100, height-100));
-    sphere(100);
-    
   }
 
   void move() 
@@ -34,15 +30,25 @@ class Ball
 
   void checkEdges()
   {
-    if ((pos.x + r/2> width) || (pos.x - r/2 < 0)) //Ball Collides with sides
+    if ((pos.x + 5 > width) || (pos.x - 5 < 0)) //Ball Collides with sides
     { 
       vel.x *= -1;
-      screenshake = 10;
     }
-    if ( pos.y - r/2 < 0 || pos.y +r/2 > height) //Ball Collides with Top
+    if ( pos.y - 5 < 0) //Ball Collides with Top
     { 
       vel.y *= -1;
+    }
+    if ( pos.y > height) //Ball Goes off Screen
+    { 
+      vel.y *= -1;
+      fill(255, 0, 0); 
+      ellipse(pos.x, pos.y, 20, 20 ); //Indicator of impact/Fail
       screenshake = 10;
+    }
+
+    if ( pos.x > player.pos.x - player.l/2 && pos.x < player.pos.x + player.l/2  && pos.y > player.pos.y)
+    {
+      vel.y *= -1;
     }
   }
 }
