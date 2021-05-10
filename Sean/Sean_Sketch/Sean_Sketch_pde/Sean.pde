@@ -19,8 +19,8 @@ void lines(float _r2)
     stroke(c, 255, 255);
     x = cx + sin(theta) * (r2);
     y = cy + cos(theta) * (r2);
-    _x = cx + sin(theta ) * width/2;
-    _y = cy + cos(theta ) * height/3;
+    _x = cx + sin(theta ) * width/2.5;
+    _y = cy + cos(theta ) * height/2.5;
 
     line(x, y, _x + random(-1, 1), _y);
   }

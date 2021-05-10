@@ -23,16 +23,16 @@ void draw_button() {
   // button 1
   if ( over(b1x, b1y, b1w, b1h) ) stroke(0, 200, 200);     // border color
   else                            stroke(200, 0, 200);
-  if ( set1 )   fill(180, 200, 200);                           // status fill color
-  else          fill(120, 200, 200);
+  if ( set1 )   fill(255, 200, 200);                           // status fill color
+  else          fill(150, 200, 200);
   rect(b1x, b1y, b1w, b1h, 7);
   // button 2
   if ( over(b2x, b2y, b2w, b2h) ) stroke(0, 200, 200);    
   else                            stroke(200, 0, 200);
-  if ( set2 )   fill(180, 200, 200);                           
-  else          fill(120, 200, 200);
+  if ( set2 )   fill(255, 255, 200);                           
+  else          fill(150, 255, 200);
   rect(b2x, b2y, b2w, b2h, 7);
-  fill(0,255,255);
+  fill(0);
   text("Song 1", b1x - b1w/4, b1y + b1h/4);
   text("Song 2", b2x - b2w/4, b2y + b2h/4);
 }

@@ -8,11 +8,12 @@ import ddf.minim.ugens.*;
 Minim minim;
 AudioPlayer song;
 AudioPlayer[] playlist;
-AudioBuffer buffer;
+AudioBuffer buffer, inputBuffer;
 AudioInput ai;
 FFT fft;
 
 float lerpedAverage = 0;
+float lerpInput;
 float[] lerpedBuffer;
 float[] lerpedFFT;
 float x, y;
@@ -20,7 +21,7 @@ float theta = 0;
 float speed = 0.02f;
 float moveSpeed = 1;
 float z = 0;
-int mode = 0;
+int mode = 1;
 float screenshake;
 boolean pause = true;
 
@@ -35,33 +36,32 @@ int b2x, b2y, b2w, b2h;
 boolean set2 = false;
 boolean set1 = false;
 
-Tree tr;
-
 void setup()
 {
   size(1024, 1024, P3D); //P3D needed for rendering 3D
   colorMode(HSB);
   rectMode(CENTER);
+  //==Minim==
   minim = new Minim(this);
+  //Songs Playlist
   playlist = new AudioPlayer[2];
   playlist[0] = minim.loadFile("song1.mp3");
   playlist[1] = minim.loadFile("song2.mp3");
-
   for ( int i = 0; i < playlist.length; i++ ) {
     playlist[i].loop();
     playlist[i].pause();
     buffer = playlist[i].mix;
   }
   lerpedBuffer = new float[buffer.size()];
+  //MIC
+  ai = minim.getLineIn(Minim.MONO, width, 44100, 16);
+  inputBuffer = ai.mix;
 
   fft = new FFT(width, 44100);
 
-  //Tree
-  tr = new Tree(20, 100, 100);
-
   //Game
-  player= new Player( width/2, height-50, 60, 10, 5);
-  ball = new Ball (width/2, height/2.5, 10);
+  player= new Player( width/2, height-50, 80, 15, 5);
+  ball = new Ball (width/2, height/1.5, 10);
   makeBricks();
 }
 
@@ -79,15 +79,22 @@ void draw()
   }
   float average = sum / buffer.size();
   lerpedAverage = lerp(lerpedAverage, average, 0.1f);
-  //float c = map(lerpedAverage, 0, 1, 200, 0);
-  
+  float c = map(lerpedAverage, 0, 1, 80, 150);
+
   //TREE CODE Parameters
   float angle = map(lerpedAverage, 0, 1, 0, 145);
   float radius = map(lerpedAverage*15, 0, 1, 148, 175);
 
+  float total = 0;
+  for (int i = 1; i < inputBuffer.size(); i ++)
+  {
+    total += abs(inputBuffer.get(i));
+  }
 
-
-
+  float inputAvg = total / (float) inputBuffer.size();
+  lerpInput = lerp(lerpedAverage, inputAvg, 0.1f);
+  println("lerp input" + lerpInput);
+  
   switch(mode) {
   case 0: 
     break;
@@ -96,29 +103,24 @@ void draw()
     break;
   case 2: 
     boxBorder();
-    tr.drawTree();
+    drawTree(angle, c, 100);
     break;
-    case 3:
+  case 3:
     lines(radius);
     break;
   }
-  
+
   //GAME PING PONG
   screenShake();
-  Player.update;
+  player.update();
   ball.update();
   for (int i = 0; i < bricks.size(); i++) 
   {
-    stroke(255);
+    stroke(c);
     bricks.get(i).update();
   }
 }
 
-void test()
-{
-  for (int i = 0; i <= 360; i++) {
-  }
-}
 
 void screenShake () 
 { 
@@ -158,7 +160,7 @@ void mousePressed()
   if ( over(b1x, b1y, b1w, b1h) ) {                          // button 1
     set1 = ! set1;
     if ( set1 ) {
-      set2 = false;                                          // make option group logic unset others
+      set2 = false;                                          
       play_only_one(0);
     } else {
       pause_only_one(0);
@@ -167,7 +169,7 @@ void mousePressed()
   if ( over(b2x, b2y, b2w, b2h) ) {                          // button 2
     set2 = ! set2;
     if ( set2 ) {
-      set1 = false;                                          // make option group logic unset others
+      set1 = false;                                          
       play_only_one(1);
     } else {
       pause_only_one(1);

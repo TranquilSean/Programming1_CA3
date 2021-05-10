@@ -7,7 +7,7 @@ class Ball
   Ball(float xpos, float ypos, float  radius ) 
   {
     pos = new PVector(xpos, ypos); 
-    vel = new PVector(3, -3);
+    vel = new PVector(3, 3);
     r = radius;
   }
 
@@ -46,7 +46,7 @@ class Ball
       screenshake = 10;
     }
 
-    if ( pos.x > player.pos.x - player.l/2 && pos.x < player.pos.x + player.l/2  && pos.y > player.pos.y)
+    if ( pos.x > player.pos.x - player.l/2 && pos.x < player.pos.x + player.l/2  && pos.y > player.pos.y - player.h/2)
     {
       vel.y *= -1;
     }

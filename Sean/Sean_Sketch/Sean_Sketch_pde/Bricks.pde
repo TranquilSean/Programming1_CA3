@@ -1,17 +1,17 @@
 void makeBricks() 
 {
-    for (int row = 1; row < 8; row++) 
+  for (int row = 1; row < 8; row++) 
+  {
+    for (int col = 1; col < 10; col++)
     {
-      for (int col = 1; col < 10; col++)
-      {
-        pushMatrix();
-        translate(112, 100);
-        bricks.add(new Brick((col / 11.0) * width, (row / 8.0) * (height/2),80, 40));
-        popMatrix();
-      }
+      pushMatrix();
+      translate(112, 100);
+      bricks.add(new Brick((col / 11.0) * width, (row / 8.0) * (height/2), 80, 40));
+      popMatrix();
     }
   }
-  
+}
+
 class Brick 
 {
   PVector pos;
@@ -21,7 +21,6 @@ class Brick
   {
     pos = new PVector(_x, _y);
     size = new PVector(_w, _h);
-    
   }
 
   void update() 
@@ -29,17 +28,22 @@ class Brick
     drawBrick();
     float halfW = size.x/2;
     float halfL= size.y/2;
-    
-    if ( ball.pos.x > pos.x - halfW && ball.pos.x < pos.x + halfW && ball.pos.y > pos.y - halfL && ball.pos.y < pos.y + halfL) {
+    float ballX = ball.pos.x;
+    float ballY = ball.pos.y;
+
+
+
+    if ( ballX > pos.x - halfW && ballX < pos.x + halfW && ballY > pos.y - halfL && ballY < pos.y + halfL) {
       bricks.remove(this);
-      //screenshake = 10;
+      screenshake = 5;
+      ball.vel.y *= -1;
     }
   }
 
   void drawBrick() 
-  {    
-    noFill();
-    stroke(255);
+  {     
+      float c2 = map(player.pos.x, 0, width, 0, 255);
+    fill(c2, 255, 255);
     rect(pos.x, pos.y, size.x, size.y);
   }
 }

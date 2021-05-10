@@ -4,15 +4,16 @@ class Player
   PVector pos;
   PVector size;
   float speed;
-  float l;
+  float l, h;
   boolean GoLeft, GoRight = false;
 
-  Player( float xpos, float ypos, float w, float h, float s) 
+  Player( float xpos, float ypos, float _w, float _h, float s) 
   {
     pos = new PVector(xpos, ypos);
-    size = new PVector(w, h);
     speed = s;
-    l = w;
+    l = _w;
+    h = _h;
+    size = new PVector(l, h);
   }
 
   void update() 
@@ -26,14 +27,14 @@ class Player
     stroke(0);
     fill(255);
     rect(pos.x, pos.y, size.x, size.y);
-
-    if ( pos.x <= 0) 
+    
+    if ( pos.x - l/2 <= 0) 
     {
-      pos.x= 0;
+      pos.x= l/2;
     }
-    if (pos.x + l >width) 
+    if (pos.x + l/2 >width) 
     {
-      pos.x = width - l;
+      pos.x = width - l/2;
     }
   }
 
