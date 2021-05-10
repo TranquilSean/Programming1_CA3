@@ -108,7 +108,7 @@ void draw()
     bricks.get(i).update();
   }
   if (bricks.size() == 0) {
-    text("ENJOY THE MUSIC", width/2, 200);
+    text("ENJOY THE MUSIC", width/2-50, 40);
   } else {
     screenShake();
     player.update();
