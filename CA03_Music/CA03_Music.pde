@@ -53,11 +53,9 @@ void setup()
     buffer = playlist[i].mix;
   }
   lerpedBuffer = new float[buffer.size()];
-  //MIC
+  //MIC Didnt use it in the end
   ai = minim.getLineIn(Minim.MONO, width, 44100, 16);
   inputBuffer = ai.mix;
-
-  fft = new FFT(width, 44100);
 
   //Game
   player= new Player( width/2, height-50, 80, 15, 5);
@@ -84,17 +82,6 @@ void draw()
   //TREE CODE Parameters
   float angle = map(lerpedAverage, 0, 1, 0, 145);
   float radius = map(lerpedAverage*15, 0, 1, 148, 175);
-
-  float total = 0;
-  for (int i = 1; i < inputBuffer.size(); i ++)
-  {
-    total += abs(inputBuffer.get(i));
-  }
-
-  float inputAvg = total / (float) inputBuffer.size();
-  lerpInput = lerp(lerpedAverage, inputAvg, 0.1f);
-  println("lerp input" + lerpInput);
-
 
   draw_button();
 
