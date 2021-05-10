@@ -1,22 +1,32 @@
 # Programming_CA3
 Group Members:
-Mark, Niamh & Sean
+| Student Number | Name |
+|-----------|-----------|
+| C20740015 | Sean Nugent |
+| C20388086 | Niamh Homan |
+| C20349251 | Mark Lambe |
 
-## What your assignment does?
+# Project Description
 
-3 Different "backgrounds" and game to play while listening to a choice of songs.
+A mini Game to play while listening to a choice of songs, with some visual backgrounds.
 
-## What the controls are?
+# Video
+
+[![YouTube](https://media.discordapp.net/attachments/808853166358790167/841338729422389258/unknown.png?width=659&height=675)](https://youtu.be/4R8IpiuBzXk)
+
+
+# Instructions for use
 
 - A & D to Move the player/paddle
 - 1, 2, and 3 to switch between backgrounds
 - Click on buttons on top of screen to play either song.
 
-## How to make it run?
-Game runs automatically as well as the first background.
-Press either button to play a song.
+# How it works 
 
-## A list of the stuff you are most proud of?
+Game starts automatically as well as the first background.
+Press either button to play a song. the backgrounds change sizes, colours with the song.
+
+# A list of the stuff you are most proud of?
 
 - We really helped each other. We were all had different levels of understanding  programming. So we worked together in Discord, sharing screens and using voice chat. 
 - Adapting code from class.
@@ -25,7 +35,4 @@ Press either button to play a song.
 
 ## What each team member did ?
 
-
-Video Of Assignment
-
-[![Video](http://img.youtube.com/vi/NGQbYEESZEg/0.jpg)](https://www.youtube.com/watch?v=NGQbYEESZEg&list=PL1n0B6z4e_E7I2bIWWpH8NAa6kPx95sw5)
+Supported each other :D
