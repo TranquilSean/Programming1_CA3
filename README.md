@@ -28,7 +28,7 @@ Press either button to play a song. the backgrounds change sizes, colours with t
 
 # A list of the stuff you are most proud of?
 
-- We really helped each other. We were all had different levels of understanding  programming. So we worked together in Discord, sharing screens and using voice chat. 
+- We really helped each other. We all had different levels of understanding  programming. So we worked together in Discord, sharing screens and using voice chat. 
 - Adapting code from class.
 - Following tutorials from Danial Stiffman to get the Fractorial Tree working.
 - Setting up classes for the bricks and ball, being able to work with variables from one "class" to the another (collision code).
