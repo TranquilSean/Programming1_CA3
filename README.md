@@ -70,7 +70,7 @@ Buttons to to switch between songs and made a playlists..
 
 The brick breaker game.
 
-The cirlce/lines visual. 
+The circle/lines visual. 
 
 Organise Github.
 
