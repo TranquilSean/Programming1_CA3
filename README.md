@@ -8,7 +8,7 @@ Group Members:
 
 # Project Description
 
-A mini Game to play while listening to a choice of songs, with some visual backgrounds.
+A Mini Game to play while listening to a choice of songs, with some visual backgrounds.
 
 # Video
 
