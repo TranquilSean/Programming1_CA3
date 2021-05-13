@@ -24,7 +24,7 @@ A Mini Game to play while listening to a choice of songs, with some visual backg
 # How it works 
 
 Game starts automatically as well as the first background.
-Press either button to play a song. the backgrounds change sizes, colours with the song.
+Press either button to play a song. The backgrounds change sizes, colours with the song.
 
 # A list of the stuff you are most proud of?
 
