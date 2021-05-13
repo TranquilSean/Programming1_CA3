@@ -33,6 +33,10 @@ Press either button to play a song. the backgrounds change sizes, colours with t
 - Following tutorials from Danial Stiffman to get the Fractorial Tree working.
 - Setting up classes for the bricks and ball, being able to work with variables from one "class" to the another (collision code).
 
+Mark:
+I am personally most proud of how much I was able to programme together and make for this assignment. I personally struggle when it comes to coding and I find it very difficult to come up with and alter code. It was a massive achievement for me to of produced the background that I did. I also briefly learnt how to manage song files and got to use my own song for my background. It was a lot of fun to think up of a composition and then go and make it. I was shown specific pieces of code that let me multiply the scaling of the shapes and was a very satisfying experience.
+
+
 ## What each team member did ?
 
 Supported each other :D
